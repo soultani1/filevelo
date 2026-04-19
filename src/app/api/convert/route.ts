@@ -7,7 +7,7 @@ export const maxDuration = 60;
 
 // Maps FileVelo compression level UI to CloudConvert optimization_profile values
 const COMPRESSION_PROFILE: Record<string, string> = {
-  low: "web",      // Fastest, largest file — minimal compression
+  low: "web",      // Fastest, largest file - minimal compression
   medium: "print", // Balanced size and quality
   high: "max",     // Maximum reduction, smallest file
 };
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "File exceeds the 50 MB limit." }, { status: 413 });
     }
 
-    // Build the convert task — add optimization_profile when compressing PDF→PDF
+    // Build the convert task - add optimization_profile when compressing PDF to PDF
     const convertTask = {
       operation: "convert" as const,
       input: "upload-file",
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
         : {}),
     };
 
-    // Create a job with import → convert → export steps
+    // Create a job with import, convert, and export steps
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let job = await cloudconvert.jobs.create({
       tasks: {

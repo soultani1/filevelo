@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 interface ConvertOptions {
-  /** Used for PDF→PDF compression: "low" | "medium" | "high" */
+  /** Used for PDF-to-PDF compression: "low" | "medium" | "high" */
   compressionLevel?: "low" | "medium" | "high";
 }
 
