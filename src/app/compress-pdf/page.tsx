@@ -1,25 +1,28 @@
 import type { Metadata } from "next";
 import { getToolBySlug, getRelatedTools } from "@/lib/tools";
-import ToolPageShell from "@/components/ToolPageShell";
+import ToolPageTemplate from "@/components/ToolPageTemplate";
 import CompressTool from "./CompressTool";
 
 const tool = getToolBySlug("compress-pdf")!;
 const related = getRelatedTools(tool);
 
 export const metadata: Metadata = {
-  title: "Compress PDF Online Free – Reduce File Size Without Quality Loss | FileVelo",
+  title: "Compress PDF Online Free - Reduce File Size Without Quality Loss | FileVelo",
   description:
     "Reduce PDF file size without losing quality using FileVelo's cloud compression engine. Choose Low, Medium, or High. Files are encrypted in transit and deleted immediately after download.",
+  alternates: { canonical: "https://filevelo.com/compress-pdf" },
 };
 
-export default function Page() {
+export default function CompressPdfPage() {
   return (
-    <ToolPageShell
+    <ToolPageTemplate
       tool={tool}
       related={related}
+      headline="Compress PDF Online"
+      subheadline="Reduce your PDF file size by up to 80% with three compression levels. Secure cloud processing - file deleted immediately after download."
       steps={[
         {
-          icon: "upload",
+          icon: "upload_file",
           title: "Upload Your PDF",
           desc: "Select the PDF you want to compress or drag it into the workarea. A cover thumbnail renders immediately so you can confirm the right file.",
         },
@@ -34,7 +37,7 @@ export default function Page() {
           desc: "Our secure cloud engine processes your file and streams the result back to your browser. Both the original and compressed files are deleted immediately after download.",
         },
       ]}
-      seoTitle="How to Compress a PDF with FileVelo"
+      seoH2="How to Compress a PDF with FileVelo"
       seoBody={
         <>
           <p>
@@ -87,6 +90,6 @@ export default function Page() {
       ]}
     >
       <CompressTool />
-    </ToolPageShell>
+    </ToolPageTemplate>
   );
 }

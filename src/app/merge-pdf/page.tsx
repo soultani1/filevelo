@@ -1,40 +1,43 @@
 import type { Metadata } from "next";
 import { getToolBySlug, getRelatedTools } from "@/lib/tools";
-import ToolPageShell from "@/components/ToolPageShell";
+import ToolPageTemplate from "@/components/ToolPageTemplate";
 import MergeTool from "./MergeTool";
 
 const tool = getToolBySlug("merge-pdf")!;
 const related = getRelatedTools(tool);
 
 export const metadata: Metadata = {
-  title: "Merge PDF Online Free – Combine PDF Files Instantly | FileVelo",
+  title: "Merge PDF Online Free - Combine PDF Files Instantly | FileVelo",
   description:
-    "Merge multiple PDF files into one document online for free. 100% browser-based — files never leave your device. No sign-up required. Fast, lossless, and private.",
+    "Merge multiple PDF files into one document online for free. 100% browser-based - files never leave your device. No sign-up required. Fast, lossless, and private.",
+  alternates: { canonical: "https://filevelo.com/merge-pdf" },
 };
 
-export default function Page() {
+export default function MergePdfPage() {
   return (
-    <ToolPageShell
+    <ToolPageTemplate
       tool={tool}
       related={related}
+      headline="Merge PDF Files"
+      subheadline="Combine multiple PDFs into one document instantly - entirely in your browser. No uploads, no waiting, no account required."
       steps={[
         {
-          icon: "upload",
+          icon: "upload_file",
           title: "Upload Your PDFs",
           desc: "Drag & drop multiple PDF files into the workarea, or click to browse. Each file renders as a cover thumbnail immediately.",
         },
         {
           icon: "format_list_numbered",
           title: "Arrange the Order",
-          desc: "Hover any card to reveal the up/down arrows. Reorder files into the exact sequence you need — numbered badges update live.",
+          desc: "Hover any card to reveal the up/down arrows. Reorder files into the exact sequence you need - numbered badges update live.",
         },
         {
           icon: "auto_fix_high",
           title: "Merge & Download",
-          desc: "Click 'Merge PDF' and your combined document is generated in-browser in seconds. Download instantly — no email, no waiting.",
+          desc: "Click 'Merge PDF' and your combined document is generated in-browser in seconds. Download instantly - no email, no waiting.",
         },
       ]}
-      seoTitle="How to Merge PDF Files with FileVelo"
+      seoH2="How to Merge PDF Files with FileVelo"
       seoBody={
         <>
           <p>
@@ -87,6 +90,6 @@ export default function Page() {
       ]}
     >
       <MergeTool />
-    </ToolPageShell>
+    </ToolPageTemplate>
   );
 }

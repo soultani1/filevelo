@@ -1,40 +1,43 @@
 import type { Metadata } from "next";
 import RotateTool from "./RotateTool";
-import ToolPageShell from "@/components/ToolPageShell";
+import ToolPageTemplate from "@/components/ToolPageTemplate";
 import { getToolBySlug, getRelatedTools } from "@/lib/tools";
 
 const tool = getToolBySlug("rotate-pdf")!;
 const related = getRelatedTools(tool);
 
 export const metadata: Metadata = {
-  title: "Rotate PDF Online Free – 90°, 180°, 270° | FileVelo",
+  title: "Rotate PDF Online Free - 90, 180, 270 Degrees | FileVelo",
   description:
-    "Rotate PDF pages 90°, 180°, or 270° online for free. Apply to all pages or a custom range. 100% browser-based — files never leave your device. No sign-up required.",
+    "Rotate PDF pages 90, 180, or 270 degrees online for free. Apply to all pages or a custom range. 100% browser-based - files never leave your device. No sign-up required.",
+  alternates: { canonical: "https://filevelo.com/rotate-pdf" },
 };
 
 export default function RotatePdfPage() {
   return (
-    <ToolPageShell
+    <ToolPageTemplate
       tool={tool}
       related={related}
+      headline="Rotate PDF Pages"
+      subheadline="Fix sideways or upside-down pages instantly. Choose 90, 180, or 270 degrees and apply to all pages or a custom range - 100% in your browser."
       steps={[
         {
-          icon: "upload",
+          icon: "upload_file",
           title: "Upload Your PDF",
           desc: "Select the PDF you want to rotate or drag it into the workarea. Every page renders as a thumbnail so you see exactly what you're working with.",
         },
         {
           icon: "tune",
           title: "Set Rotation & Scope",
-          desc: "Choose the rotation angle — 90°, 180°, or 270° — and whether to apply it to all pages or a specific range like '1, 3-5, 7'.",
+          desc: "Choose the rotation angle - 90, 180, or 270 degrees - and whether to apply it to all pages or a specific range like '1, 3-5, 7'.",
         },
         {
           icon: "rotate_right",
           title: "Rotate & Download",
-          desc: "Pages are rotated instantly in your browser using lossless processing. Download the corrected PDF immediately — no upload, no queue.",
+          desc: "Pages are rotated instantly in your browser using lossless processing. Download the corrected PDF immediately - no upload, no queue.",
         },
       ]}
-      seoTitle="How to Rotate PDF Pages with FileVelo"
+      seoH2="How to Rotate PDF Pages with FileVelo"
       seoBody={
         <>
           <p>
@@ -88,6 +91,6 @@ export default function RotatePdfPage() {
       ]}
     >
       <RotateTool />
-    </ToolPageShell>
+    </ToolPageTemplate>
   );
 }

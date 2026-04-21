@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AddPageNumbersTool from "./AddPageNumbersTool";
-import ToolPageShell from "@/components/ToolPageShell";
+import ToolPageTemplate from "@/components/ToolPageTemplate";
 import { getToolBySlug, getRelatedTools } from "@/lib/tools";
 
 const tool = getToolBySlug("add-page-numbers")!;
@@ -9,32 +9,35 @@ const related = getRelatedTools(tool);
 export const metadata: Metadata = {
   title: "Add Page Numbers to PDF Free Online | FileVelo",
   description:
-    "Add page numbers to any PDF online for free. Choose position (bottom center, right, left, or top) and starting number. 100% browser-based — files never leave your device.",
+    "Add page numbers to any PDF online for free. Choose position (bottom center, right, left, or top) and starting number. 100% browser-based - files never leave your device.",
+  alternates: { canonical: "https://filevelo.com/add-page-numbers" },
 };
 
 export default function AddPageNumbersPage() {
   return (
-    <ToolPageShell
+    <ToolPageTemplate
       tool={tool}
       related={related}
+      headline="Add Page Numbers to PDF"
+      subheadline="Number any PDF in seconds - choose position, starting number, and see a live preview. Runs entirely in your browser, completely free."
       steps={[
         {
-          icon: "upload",
+          icon: "upload_file",
           title: "Upload Your PDF",
           desc: "Select the PDF you want to number or drag it into the workarea. Every page renders as a thumbnail with a live preview of where numbers will appear.",
         },
         {
           icon: "tune",
           title: "Configure Position & Start",
-          desc: "Choose where to place the numbers — Bottom Center, Bottom Right, Bottom Left, or Top Center — and set the starting number for the first page.",
+          desc: "Choose where to place the numbers - Bottom Center, Bottom Right, Bottom Left, or Top Center - and set the starting number for the first page.",
         },
         {
           icon: "auto_stories",
           title: "Apply & Download",
-          desc: "Page numbers are added instantly in your browser. Download your numbered PDF immediately — no upload, no queue, no waiting.",
+          desc: "Page numbers are added instantly in your browser. Download your numbered PDF immediately - no upload, no queue, no waiting.",
         },
       ]}
-      seoTitle="How to Add Page Numbers to a PDF with FileVelo"
+      seoH2="How to Add Page Numbers to a PDF with FileVelo"
       seoBody={
         <>
           <p>
@@ -88,6 +91,6 @@ export default function AddPageNumbersPage() {
       ]}
     >
       <AddPageNumbersTool />
-    </ToolPageShell>
+    </ToolPageTemplate>
   );
 }

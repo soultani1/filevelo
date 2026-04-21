@@ -1,32 +1,35 @@
 import type { Metadata } from "next";
 import WordToPdfTool from "./WordToPdfTool";
-import ToolPageShell from "@/components/ToolPageShell";
+import ToolPageTemplate from "@/components/ToolPageTemplate";
 import { getToolBySlug, getRelatedTools } from "@/lib/tools";
 
 const tool = getToolBySlug("word-to-pdf")!;
 const related = getRelatedTools(tool);
 
 export const metadata: Metadata = {
-  title: "Word to PDF Converter Online Free – Perfect Formatting | FileVelo",
+  title: "Word to PDF Converter Online Free - Perfect Formatting | FileVelo",
   description:
     "Convert Word (.docx) files to perfectly formatted PDF documents online free. Secure cloud conversion with font, table, and layout preservation. File deleted immediately after download.",
+  alternates: { canonical: "https://filevelo.com/word-to-pdf" },
 };
 
 export default function WordToPdfPage() {
   return (
-    <ToolPageShell
+    <ToolPageTemplate
       tool={tool}
       related={related}
+      headline="Convert Word to PDF"
+      subheadline="Turn any .docx file into a perfectly formatted, universally readable PDF in seconds. Fonts, tables, and layouts preserved exactly as in Word."
       steps={[
         {
-          icon: "upload",
+          icon: "upload_file",
           title: "Upload Your Word File",
           desc: "Select your .docx file or drag it into the workarea. A file-icon card confirms the document is queued and ready to convert.",
         },
         {
-          icon: "cloud",
+          icon: "cloud_sync",
           title: "Cloud Conversion",
-          desc: "FileVelo's cloud engine renders your document with precise formatting — fonts, tables, images, headers, footers, and page breaks all preserved.",
+          desc: "FileVelo's cloud engine renders your document with precise formatting - fonts, tables, images, headers, footers, and page breaks all preserved.",
         },
         {
           icon: "picture_as_pdf",
@@ -34,7 +37,7 @@ export default function WordToPdfPage() {
           desc: "Download a perfectly formatted, universally compatible PDF. Both your original .docx and the output PDF are permanently deleted immediately after download.",
         },
       ]}
-      seoTitle="How to Convert Word to PDF with FileVelo"
+      seoH2="How to Convert Word to PDF with FileVelo"
       seoBody={
         <>
           <p>
@@ -87,6 +90,6 @@ export default function WordToPdfPage() {
       ]}
     >
       <WordToPdfTool />
-    </ToolPageShell>
+    </ToolPageTemplate>
   );
 }

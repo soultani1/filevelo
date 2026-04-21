@@ -1,25 +1,28 @@
 import type { Metadata } from "next";
 import { getToolBySlug, getRelatedTools } from "@/lib/tools";
-import ToolPageShell from "@/components/ToolPageShell";
+import ToolPageTemplate from "@/components/ToolPageTemplate";
 import SplitTool from "./SplitTool";
 
 const tool = getToolBySlug("split-pdf")!;
 const related = getRelatedTools(tool);
 
 export const metadata: Metadata = {
-  title: "Split PDF Online Free – Extract Pages Instantly | FileVelo",
+  title: "Split PDF Online Free - Extract Pages Instantly | FileVelo",
   description:
-    "Split a PDF into individual pages or extract a custom range online for free. 100% browser-based — files never leave your device. No registration needed.",
+    "Split a PDF into individual pages or extract a custom range online for free. 100% browser-based - files never leave your device. No registration needed.",
+  alternates: { canonical: "https://filevelo.com/split-pdf" },
 };
 
-export default function Page() {
+export default function SplitPdfPage() {
   return (
-    <ToolPageShell
+    <ToolPageTemplate
       tool={tool}
       related={related}
+      headline="Split PDF Files"
+      subheadline="Extract pages or split any PDF into multiple files instantly - 100% in your browser. Your file never leaves your device."
       steps={[
         {
-          icon: "upload",
+          icon: "upload_file",
           title: "Upload Your PDF",
           desc: "Select the PDF you want to split or drag it into the workarea. Every page renders as a thumbnail so you see exactly what you're working with.",
         },
@@ -31,10 +34,10 @@ export default function Page() {
         {
           icon: "download",
           title: "Download Your Files",
-          desc: "Split files are generated instantly in-browser. Download each one with a single click — no zip, no queue, no waiting.",
+          desc: "Split files are generated instantly in-browser. Download each one with a single click - no zip, no queue, no waiting.",
         },
       ]}
-      seoTitle="How to Split a PDF with FileVelo"
+      seoH2="How to Split a PDF with FileVelo"
       seoBody={
         <>
           <p>
@@ -86,6 +89,6 @@ export default function Page() {
       ]}
     >
       <SplitTool />
-    </ToolPageShell>
+    </ToolPageTemplate>
   );
 }
